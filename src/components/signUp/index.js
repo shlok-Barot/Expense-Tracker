@@ -36,20 +36,23 @@ class SignUpForm extends Component {
   }
 
   onSubmit = (event) => {
+    event.preventDefault();
     const { username, email, passwordOne } = this.state;
 
     const { history } = this.props;
-
+    console.log(process.env.REACT_APP_FIREBASE_API_KEY, "@@KEY");
     auth
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then((authUser) => {
         // create a user in the firebase db too
         db.doCreateUser(authUser.uid, username, email)
           .then(() => {
+            debugger;
             this.setState(() => ({ ...INITIAL_STATE }));
             history.push(routes.HOME);
           })
           .catch((error) => {
+            debugger;
             this.setState(byPropKey("error", error));
           });
 
@@ -66,10 +69,9 @@ class SignUpForm extends Component {
         }
       })
       .catch((error) => {
+        debugger;
         this.setState(byPropKey("error", error));
       });
-
-    event.preventDefault();
   };
 
   render() {
@@ -119,7 +121,6 @@ class SignUpForm extends Component {
           <button disabled={isInvalid} type="submit">
             Sign Up
           </button>
-
           {error && <p>{error.message}</p>}
         </form>
         <p style={StyleInSignUp}>
