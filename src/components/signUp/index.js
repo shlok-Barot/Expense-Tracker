@@ -47,12 +47,10 @@ class SignUpForm extends Component {
         // create a user in the firebase db too
         db.doCreateUser(authUser.uid, username, email)
           .then(() => {
-            debugger;
             this.setState(() => ({ ...INITIAL_STATE }));
             history.push(routes.HOME);
           })
           .catch((error) => {
-            debugger;
             this.setState(byPropKey("error", error));
           });
 
@@ -69,7 +67,6 @@ class SignUpForm extends Component {
         }
       })
       .catch((error) => {
-        debugger;
         this.setState(byPropKey("error", error));
       });
   };
