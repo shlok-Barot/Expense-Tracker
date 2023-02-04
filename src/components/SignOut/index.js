@@ -7,7 +7,7 @@ const SignOutButton = () =>
         className="nav-item" 
             onClick={auth.doSignOut}
         >
-            Sign Out
+            Logout
   </div>
 
 export default SignOutButton;

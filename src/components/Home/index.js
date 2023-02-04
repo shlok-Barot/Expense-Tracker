@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-
 import ExpenseTable from "./ExpenseTable.js";
 import AddExpensePopup from "./AddExpensePopup";
 import Cards from "./Cards";
 import GenerateExcel from "./GenerateExcel";
 import Loader from "./../Common/Loader";
-
 import MobileExpenseTable from "./MobileExpenseTable";
 
 import * as analytics from "./../../analytics/analytics";
@@ -28,46 +26,15 @@ class HomePage extends Component {
     analytics.logPageView();
 
     // if travel mode then convert currency else set to 1
-    if (this.props.settings && this.props.settings.travelMode === "on") {
-      function returnCur(cur) {
-        switch (cur) {
-          case "Indian Rupees":
-            return "INR";
-          case "US Dollars":
-            return "USD";
-          case "Pounds":
-            return "EUR";
-          case "Euro":
-            return "EUR";
-          case "Yen":
-            return "YER";
-          default:
-            return "INR";
-        }
-      }
-
-      const fromcur = returnCur(this.props.settings.fromCurrency);
-      const tocur = returnCur(this.props.settings.currency);
-
-      fetch(
-        `https://free.currencyconverterapi.com/api/v5/convert?q=${fromcur}_${tocur}&compact=y&apiKey=${process.env.REACT_APP_FREE_CURRENCY_CONVERTER_API_KEY}`
-      )
-        .then((resp) => resp.json()) // Transform the data into json
-        .then((data) => {
-          this.setState({ convertedCurrency: Object.values(data)[0].val });
-        })
-        .catch(() => {
-          alert(
-            "Some Problem with the currency converter api. Values will Fallback to default currency"
-          );
-          this.setState({ convertedCurrency: 1 });
-        });
-    } else {
+    if (this.props.settings) {
       this.setState({ convertedCurrency: 1 });
     }
   }
 
   render() {
+    {
+      console.log(this.props, "PROPS");
+    }
     const styleFromSettings = {
       fontFamily: this.props.settings ? this.props.settings.font : "sans-serif",
       backgroundColor: this.props.settings
@@ -94,8 +61,8 @@ class HomePage extends Component {
               authUser={this.props.user}
               settings={this.props.settings}
             />
-            {this.state.convertedCurrency ? (
-              window.screen.width > 720 ? (
+            {this.state.convertedCurrency &&
+              (window.screen.width > 720 ? (
                 <ExpenseTable
                   expenses={this.props.expenses}
                   authUser={this.props.user}
@@ -109,10 +76,7 @@ class HomePage extends Component {
                   settings={this.props.settings}
                   convertedCurrency={this.state.convertedCurrency}
                 />
-              )
-            ) : (
-              <Loader />
-            )}
+              ))}
           </div>
           <button
             className="addexpense-btn"

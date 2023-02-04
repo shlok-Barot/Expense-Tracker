@@ -13,7 +13,6 @@ import Navigation from "./Navigation/index";
 //import LandingPage from "./Landing/index";
 import SignUpPage from "./signUp/index";
 import SignInPage from "./signIn/index";
-import ShopPage from "./Shop/index";
 import PasswordForgetPage from "./forgotPassword/index";
 import HomePage from "./Home/index";
 import UpdatePassword from "./Settings/UpdatePassword";
@@ -22,9 +21,7 @@ import DailyViewPage from "./DailyView/index";
 import FilterViewPage from "./FilterView/index";
 import UserVerification from "./UserVerification/index";
 import StatisticsPage from "./Statistics/index";
-import LoanPage from "./Loan/index";
 import SettingsPage from "./Settings/index";
-import SavingsPage from "./Savings/index";
 import ErrorPage from "./Error/index";
 
 import * as routes from "../constants/routes";
@@ -44,7 +41,6 @@ class App extends Component {
       defaultCategoriesNames: null,
       defaultCategoriesColors: null,
       settings: null,
-      savings: null,
     };
   }
 
@@ -114,8 +110,6 @@ class App extends Component {
                   data.val().font,
                   data.val().mode,
                   data.val().currency,
-                  data.val().travelMode,
-                  data.val().fromCurrency,
                   data.val().monthLimit,
                   defaultCategories
                 );
@@ -181,17 +175,6 @@ class App extends Component {
                   });
                 }
               });
-            }
-          });
-
-        // get all the savings from new table
-        firebase.db
-          .ref(`savingsTable/${this.state.authUser.uid}`)
-          .on("value", (data) => {
-            if (data.val() !== null) {
-              this.setState({ savings: data.val() });
-            } else {
-              this.setState({ savings: data.val() });
             }
           });
 
@@ -346,8 +329,6 @@ class App extends Component {
               path={routes.SIGN_IN}
               component={() => <SignInPage />}
             />
-            <Route exact path={routes.SHOP} component={() => <ShopPage />} />
-
             <Route
               exact
               path={routes.PASSWORD_FORGET}
@@ -425,19 +406,7 @@ class App extends Component {
                 />
               )}
             />
-            <Route
-              exact
-              path={routes.LOAN_VIEW}
-              component={() => (
-                <LoanPage
-                  user={this.state.authUser}
-                  loans={this.state.loans}
-                  settings={this.state.settings}
-                  cards={cards}
-                />
-              )}
-            />
-
+       
             <Route
               exact
               path={routes.SETTINGS_VIEW}
@@ -446,18 +415,6 @@ class App extends Component {
                   user={this.state.authUser}
                   settings={this.state.settings}
                   cards={cards}
-                />
-              )}
-            />
-
-            <Route
-              exact
-              path={routes.SAVINGS_VIEW}
-              component={() => (
-                <SavingsPage
-                  user={this.state.authUser}
-                  savings={this.state.savings}
-                  settings={this.state.settings}
                 />
               )}
             />

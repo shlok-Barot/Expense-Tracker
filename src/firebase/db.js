@@ -40,58 +40,6 @@ const doCreateExpenseTable = (
   });
 };
 
-// Create an saving table , this happens for first time
-const doCreateSavingsTable = (
-  uid,
-  date,
-  goalAmount,
-  savingAmount,
-  savingFor,
-  comments,
-  day,
-  goalAchieved,
-  cardColor,
-  key
-) => {
-  db.ref(`savingsTable/${uid}/${key}`).set({
-    uid,
-    date,
-    goalAmount,
-    savingAmount,
-    savingFor,
-    comments,
-    goalAchieved,
-    cardColor,
-    day,
-  });
-};
-
-const doCreateSaving = (
-  uid,
-  date,
-  goalAmount,
-  savingAmount,
-  savingFor,
-  comments,
-  goalAchieved,
-  cardColor,
-  day
-) => {
-  db.ref(`savingsTable/${uid}`)
-    .push()
-    .set({
-      uid,
-      date,
-      goalAmount,
-      savingAmount,
-      savingFor,
-      comments,
-      goalAchieved,
-      cardColor,
-      day,
-    });
-};
-
 const onceGetExpenses = () => db.ref("expenses").once("value");
 
 const onceGetLoans = () => db.ref("loans").once("value");
@@ -146,8 +94,6 @@ const doCreateSettingsForUser = (
   font,
   mode,
   currency,
-  travelMode,
-  fromCurrency,
   monthLimit,
   editedCategories
 ) =>
@@ -155,24 +101,9 @@ const doCreateSettingsForUser = (
     font,
     mode,
     currency,
-    travelMode,
-    fromCurrency,
     monthLimit,
     editedCategories,
   });
-
-//  const expensesRef = db.ref('expenses')
-//     expensesRef.on('child_removed', function (data) {
-//         console.log("child_removed")
-//     });
-
-// const allExpenses = () => {
-//     return onceGetExpenses().then((data) => {
-//          console.log(data.val())
-//         }).catch(error => {
-//             console.log(error)
-//         });
-// }
 
 export {
   doCreateUser,
@@ -184,6 +115,4 @@ export {
   doCreateLoan,
   doCreateLoanTable,
   doCreateSettingsForUser,
-  doCreateSavingsTable,
-  doCreateSaving,
 };

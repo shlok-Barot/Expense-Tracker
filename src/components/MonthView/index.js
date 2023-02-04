@@ -63,56 +63,19 @@ class MonthViewPage extends Component {
     analytics.initGA();
     analytics.logPageView();
 
-    // if travel mode then convert currency else set to 1
-    if (this.props.settings && this.props.settings.travelMode === "on") {
-      function returnCur(cur) {
-        switch (cur) {
-          case "Indian Rupees":
-            return "INR";
-          case "US Dollars":
-            return "USD";
-          case "Pounds":
-            return "EUR";
-          case "Euro":
-            return "EUR";
-          case "Yen":
-            return "YER";
-          default:
-            return "INR";
-        }
-      }
-
-      const fromcur = returnCur(this.props.settings.fromCurrency);
-      const tocur = returnCur(this.props.settings.currency);
-
-      fetch(
-        `https://free.currencyconverterapi.com/api/v5/convert?q=${fromcur}_${tocur}&compact=y&apiKey=${process.env.REACT_APP_FREE_CURRENCY_CONVERTER_API_KEY}`
-      )
-        .then((resp) => resp.json()) // Transform the data into json
-        .then((data) => {
-          this.setState({
-            convertedCurrency: Object.values(data)[0].val,
-          });
-        })
-        .catch(() => {
-          alert(
-            "Some Problem with the currency converter api. Values will Fallback to default currency"
-          );
-          this.setState({ convertedCurrency: 1 });
-        });
-    } else {
+    if (this.props.settings){
       this.setState({ convertedCurrency: 1 });
     }
   }
 
   render() {
-    const Header = {
-      background: "#887657",
-      color: "#fff",
-      padding: "15px",
-      margin: "0 0 15px 0",
-      borderRadius: "5px",
-    };
+    // const Header = {
+    //   background: "#887657",
+    //   color: "#fff",
+    //   padding: "15px",
+    //   margin: "0 0 15px 0",
+    //   borderRadius: "5px",
+    // };
 
     const pad15 = {
       padding: "15px",
