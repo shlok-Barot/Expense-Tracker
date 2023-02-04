@@ -32,7 +32,7 @@ const NavigationAuth = (props) => {
     <nav style={props.settings.mode === "night" ? nightModeHeader : daymode}>
       <div className="navWide">
         <ul className="navbar-nav">
-          <h2 className="navbar-brand">Expense Manager</h2>
+          <h2 className="navbar-brand">Expense Tracker</h2>
         </ul>
         <div className="wideDiv">
           <Link
@@ -119,7 +119,7 @@ const NavigationAuth = (props) => {
             className="navbar-brand"
             style={props.settings.mode === "night" ? nightModeHeader : daymode}
           >
-            Expense Manager
+            Expense Tracker
           </h2>
         </ul>
         <div className="narrowLinks">
@@ -220,7 +220,7 @@ const NavigationNonAuth = () => {
     <nav>
       <div className="navWide">
         <ul className="navbar-nav">
-          <h2 className="navbar-brand">Expense Manager</h2>
+          <h2 className="navbar-brand">Expense Tracker</h2>
         </ul>
         <div className="wideDiv">
           {/* <Link
@@ -243,7 +243,7 @@ const NavigationNonAuth = () => {
       <div className="navNarrow">
         <i className="fa fa-bars fa-2x" onClick={burgerToggle} />
         <ul className="navbar-nav">
-          <h2 className="navbar-brand">Expense Manager</h2>
+          <h2 className="navbar-brand">Expense Tracker</h2>
         </ul>
         <div className="narrowLinks">
           {/* <Link

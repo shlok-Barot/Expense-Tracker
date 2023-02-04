@@ -82,6 +82,7 @@ class SignInForm extends Component {
         // allow signin only when user is verified
         if (authUser && authUser.emailVerified) {
           this.setState(() => ({ ...INITIAL_STATE }));
+          localStorage.setItem('Token',authUser.refreshToken)
           history.push(routes.HOME);
         } else {
           history.push(routes.USER_VERIFICATION);
@@ -132,7 +133,7 @@ class SignInForm extends Component {
             <div className="landing">
               <img src={logo} style={imgStyle} width="auto" height="100" />
               <span>
-                Expense Manager which takes note of all your daily expenses
+                Expense Tracker which takes note of all your daily expenses
               </span>
               <hr />
               <p>

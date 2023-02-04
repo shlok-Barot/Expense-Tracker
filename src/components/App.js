@@ -45,7 +45,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    document.title = "Expense Manager";
+    document.title = "Expense Tracker";
 
     analytics.initGA();
     analytics.logPageView();
