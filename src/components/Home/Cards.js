@@ -1,7 +1,7 @@
 import React from "react";
 import Loader from "../Common/Loader";
 import * as utils from "../Util";
-import Trianglify from "trianglify";
+// import Trianglify from "trianglify";
 import LineChartExpenseTimeline from "./LineChartTimeline";
 import BarChartAllMonths from "./BarChartAllMonths";
 

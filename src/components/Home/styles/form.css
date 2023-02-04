@@ -1,33 +1,47 @@
-#addExpense{
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
+#addExpense {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
 }
 
-#closePopup{
-    position: absolute;
-    right: 10px;
-    border-radius: 15px;
-    top: 10px;
-    color: #ddd;
-    background: #d65757;
-    cursor: pointer;
-    outline: none;
-    border: 2px solid #d65757;
+#closePopup {
+  position: absolute;
+  right: 10px;
+  border-radius: 15px;
+  top: 10px;
+  color: #ddd;
+  background: #d65757;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid #d65757;
 }
 
 form {
-    margin: 0;
-    padding: 15px;
-    color: #000 !important;
+  margin: 0;
+  padding: 15px;
+  color: #000 !important;
 }
 
-.success-msg{
-    padding: 10px;
-    color: #fff;
-    border-radius: 2px;
+.success-msg {
+  padding: 10px;
+  color: #fff;
+  border-radius: 2px;
 }
 
-.signout-btn{
-    border: 1px solid orange;
+.signout-btn {
+  border: 1px solid orange;
+}
+.record_not_found {
+  color: #ff0000;
+  text-align: center;
+  padding: 4rem 0 4rem 0;
+}
+.null_data {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
 }
