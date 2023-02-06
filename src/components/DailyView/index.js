@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-import DatePicker from "react-datepicker";
-import moment from "moment";
-
 import ExpenseTable from "./ExpenseTable.js";
 import TotalCard from "./TotalCard";
 import CategoryTotalCard from "./CategoryTotalCard";
@@ -10,7 +7,8 @@ import MobileExpenseTable from "./MobileExpenseTable";
 import DoughnutChart from "./DoughnutChart";
 import GenerateExcel from "./GenerateExcel";
 import Loader from "./../Common/Loader";
-
+import { DatePicker } from "antd";
+import moment from "moment";
 import * as analytics from "./../../analytics/analytics";
 
 class DailyViewPage extends Component {
@@ -60,20 +58,12 @@ class DailyViewPage extends Component {
     analytics.initGA();
     analytics.logPageView();
 
-    if (this.props.settings){
+    if (this.props.settings) {
       this.setState({ convertedCurrency: 1 });
     }
   }
 
   render() {
-    // const datePickerHeader = {
-    //     background: "#887657",
-    //     color: "#fff",
-    //     padding: "15px",
-    //     margin: "0 0 15px 0",
-    //     borderRadius: "5px"
-    // };
-
     const form = {
       padding: window.screen.width > 720 ? "15px 0 0 0" : "15px",
     };
@@ -123,7 +113,7 @@ class DailyViewPage extends Component {
                   <label className="col-2 col-form-label" style={white}>
                     <span>Date</span>
                   </label>
-                  <div className="col-10">
+                  <div className="col-10 datepicker">
                     <DatePicker
                       className={
                         "form-control date " +
@@ -132,8 +122,9 @@ class DailyViewPage extends Component {
                           : "inputDayMode")
                       }
                       name="date"
-                      selected={this.state.date}
-                      onSelect={this.handelDateSelect.bind(this)}
+                      format={"DD-MM-YYYY"}
+                      value={this.state.date}
+                      onChange={this.handelDateSelect.bind(this)}
                     />
                   </div>
                 </div>

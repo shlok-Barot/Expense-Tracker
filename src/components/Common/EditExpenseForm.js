@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 
-import DatePicker from "react-datepicker";
+import { DatePicker } from "antd";
 import moment from "moment";
 import $ from "jquery";
-
 import Loader from "./Loader";
-
 import * as firebase from "../../firebase/firebase";
-
-import "react-datepicker/dist/react-datepicker.css";
 import "../Home/styles/form.css";
 
 class EditExpenseForm extends Component {
@@ -16,7 +12,6 @@ class EditExpenseForm extends Component {
     super(props);
 
     const expense = props.expense;
-
     this.state = {
       date: moment(expense.value.date),
       day: moment(expense.value.date).day,
@@ -38,8 +33,8 @@ class EditExpenseForm extends Component {
     firebase.db
       .ref(`expenseTable/${this.props.user.uid}/${this.props.expense.key}`)
       .update({
-        date: this.state.date.format("MM/DD/YYYY"),
-        day: moment(this.state.date.format("MM/DD/YYYY")).day(),
+        date: moment(this.state.date).format("MM/DD/YYYY"),
+        day: moment(this.state.date).day(),
         expense: Math.ceil(this.state.expense * this.props.convertedCurrency),
         category: this.state.category,
         comments: this.state.comments,
@@ -81,14 +76,13 @@ class EditExpenseForm extends Component {
         bottom: "15px",
         left: "15px",
       };
-
       return (
         <form onSubmit={this.handleSubmit}>
           <div className="form-group row">
             <label className="col-sm-2 col-xs-6 col-form-label">
               <span>Date</span>
             </label>
-            <div className="col-sm-10 col-xs-6">
+            <div className="col-sm-10 col-xs-6 datepicker">
               <DatePicker
                 className={
                   "form-control date " +
@@ -97,7 +91,8 @@ class EditExpenseForm extends Component {
                     : "inputDayMode")
                 }
                 name="date"
-                selected={this.state.date}
+                format={"DD-MM-YYYY"}
+                value={this.state.date}
                 onChange={this.handelDateChange.bind(this)}
               />
             </div>
@@ -224,7 +219,6 @@ class EditExpenseForm extends Component {
 
           {this.state.dataSaved ? (
             <span className="bg-success success-msg">
-              {" "}
               You did not update anything
             </span>
           ) : (

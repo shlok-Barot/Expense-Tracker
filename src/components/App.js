@@ -8,6 +8,7 @@ import "font-awesome/css/font-awesome.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/css/index.css";
 import "../assets/css/signin.css";
+import 'antd/dist/antd.css';
 
 import Navigation from "./Navigation/index";
 //import LandingPage from "./Landing/index";
@@ -45,7 +46,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    document.title = "Expense Manager";
+    document.title = "Expense Tracker";
 
     analytics.initGA();
     analytics.logPageView();

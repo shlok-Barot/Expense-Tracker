@@ -557,7 +557,8 @@ export const yearsGenereator = () => {
   var dateVal = new Date();
   var currentYear = dateVal.getFullYear();
   var cutOffYears = 4; // using 5 years as cutoff as per reports cutoffyears to keep inline
-  for (var i = currentYear - cutOffYears; i <= currentYear + cutOffYears; i++) {
+  //for (var i = currentYear - cutOffYears; i <= currentYear + cutOffYears; i++) {
+  for (var i = currentYear; i <= currentYear + cutOffYears; i++) {
     defaultYears.push(i);
   }
 

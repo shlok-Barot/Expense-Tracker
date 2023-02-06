@@ -1,4 +1,4 @@
-## A Simple Expense Manager 💵
+## A Simple Expense Tracker 💵
 
 ## SCREENSHOTS
 
