@@ -14,7 +14,7 @@ const NavigationAuth = (props) => {
     }
   };
 
-  const nightMode = { background: "#00252C", color: "#F4D680" };
+  // const nightMode = { background: "#00252C", color: "#F4D680" };
 
   const nightModeHeader = {
     background: "#00252C",
@@ -29,10 +29,10 @@ const NavigationAuth = (props) => {
   const nightModeLink = { background: "#00252C", color: "#F4D680" };
 
   return (
-    <nav style={props.settings.mode === "night" ? nightModeHeader : daymode}>
+    <nav style={props.settings.mode == "night" ? nightModeHeader : daymode}>
       <div className="navWide">
         <ul className="navbar-nav">
-          <h2 className="navbar-brand">Expense Tracker</h2>
+          <p className="navbar-brand">Expense Tracker</p>
         </ul>
         <div className="wideDiv">
           <Link

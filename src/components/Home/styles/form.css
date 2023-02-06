@@ -31,7 +31,7 @@ form {
 .signout-btn {
   border: 1px solid orange;
 }
-.record_not_found {
+.record_not_found h2 {
   color: #ff0000;
   text-align: center;
   padding: 4rem 0 4rem 0;
@@ -44,4 +44,10 @@ form {
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
+}
+.datepicker .ant-picker-input > input{
+  color: rgb(169, 160, 160);
+}
+.datepicker .anticon{
+  color: rgb(169, 160, 160);
 }
