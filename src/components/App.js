@@ -68,17 +68,6 @@ class App extends Component {
           });
         });
 
-        // get and set expenses in db
-        //  firebase.db
-        //      .ref("expenses")
-        //      .on("value", data => {
-        //          if (data) {
-        //              this.setState({
-        //                  expenses: data.val()
-        //              });
-        //          }
-        //      });
-
         // get all the settings
         firebase.db
           .ref(`settings/${this.state.authUser.uid}`)

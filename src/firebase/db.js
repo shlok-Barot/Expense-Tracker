@@ -14,10 +14,10 @@ const doCreateUser = (id, username, email) =>
 // The function will return all users from the Firebase realtime database.
 const onceGetUsers = () => db.ref("users").once("value");
 
-const doCreateExpense = (uid, date, expense, category, comments, day) => {
+const doCreateExpense = (uid, date, expense, category, comments, day,fulldate) => {
   db.ref(`expenseTable/${uid}`)
     .push()
-    .set({ uid, date, expense, category, comments, day });
+    .set({ uid, date, expense, category, comments, day,fulldate });
 };
 
 // Create an expense table , this happens for first time
@@ -30,6 +30,7 @@ const doCreateExpenseTable = (
   day,
   key
 ) => {
+  debugger
   db.ref(`expenseTable/${uid}/${key}`).set({
     uid,
     date,

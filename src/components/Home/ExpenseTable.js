@@ -88,7 +88,7 @@ class ExpenseTable extends Component {
                 <th scope="col">Expense</th>
                 <th scope="col">Category</th>
                 <th scope="col">
-                  Comments{" "}
+                  Comments
                   <input
                     type="text"
                     placeholder="  search"

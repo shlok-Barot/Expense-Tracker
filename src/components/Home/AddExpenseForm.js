@@ -35,7 +35,8 @@ class AddExpenseForm extends Component {
       Math.ceil(this.state.expense * this.props.convertedCurrency),
       this.state.category,
       this.state.comments,
-      moment(this.state.date).day()
+      moment(this.state.date).day(),
+      moment(this.state.date).format("DD-MM-YYYY")
     );
     // reset form once saved
     this.setState({
