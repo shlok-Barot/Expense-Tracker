@@ -136,36 +136,36 @@ export const totalExpense = (expenses) => {
 
 // most spend day
 export const mostSpentDay = (expenses) => {
-  let monday = 0;
-  let tuesday = 0;
-  let wednesday = 0;
-  let thursday = 0;
-  let friday = 0;
-  let saturday = 0;
-  let sunday = 0;
+  let Monday = 0;
+  let Tuesday = 0;
+  let Wednesday = 0;
+  let Thursday = 0;
+  let Friday = 0;
+  let Saturday = 0;
+  let Sunday = 0;
 
   expenses.map((elem) => {
     switch (elem.value.day.toString()) {
       case "0":
-        sunday = sunday + 1;
+        Sunday = Sunday + 1;
         return "";
       case "1":
-        monday = monday + 1;
+        Monday = Monday + 1;
         return "";
       case "2":
-        tuesday = tuesday + 1;
+        Tuesday = Tuesday + 1;
         return "";
       case "3":
-        wednesday = wednesday + 1;
+        Wednesday = Wednesday + 1;
         return "";
       case "4":
-        thursday = thursday + 1;
+        Thursday = Thursday + 1;
         return "";
       case "5":
-        friday = friday + 1;
+        Friday = Friday + 1;
         return "";
       case "6":
-        saturday = saturday + 1;
+        Saturday = Saturday + 1;
         return "";
       default:
         return "";
@@ -173,13 +173,13 @@ export const mostSpentDay = (expenses) => {
   });
 
   let mostDaysObj = {
-    sunday: sunday,
-    monday: monday,
-    tuesday: tuesday,
-    wednesday: wednesday,
-    thursday: thursday,
-    friday: friday,
-    saturday: saturday,
+    Sunday: Sunday,
+    Monday: Monday,
+    Tuesday: Tuesday,
+    Wednesday: Wednesday,
+    Thursday: Thursday,
+    Friday: Friday,
+    Saturday: Saturday,
   };
 
   var sortable = [];
