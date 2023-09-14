@@ -100,7 +100,7 @@ class ExpenseRow extends Component {
           ) : null}
         </td>
         <td data-th="Date">
-          {this.props.expense.value.date}
+          {this.props.expense.value.fulldate}
           <span className="expense-day"> {day || "Sunday"}</span>
         </td>
         <td data-th="Expense">

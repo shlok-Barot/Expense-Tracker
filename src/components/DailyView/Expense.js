@@ -3,7 +3,7 @@ import ExpenseRow from "../Common/ExpenseRow";
 import Loader from "../Common/Loader";
 import * as utils from "../Util";
 
-const Expense = (props) => {
+const Expense = props => {
   const expenses = props.expenses;
   const currentUser = props.authUser;
   const dateSelected = props.date;
@@ -43,7 +43,7 @@ const Expense = (props) => {
       currentUser,
       dateSelected
     );
-
+  
     if (thisUsersExpenses.length) {
       return thisUsersExpenses.map((elem, i) => {
         return (

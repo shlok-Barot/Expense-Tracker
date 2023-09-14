@@ -38,6 +38,7 @@ class EditExpenseForm extends Component {
         expense: Math.ceil(this.state.expense * this.props.convertedCurrency),
         category: this.state.category,
         comments: this.state.comments,
+        fulldate: moment(this.state.date).format("DD-MM-YYYY")
       });
 
     $("#closePopup").click();

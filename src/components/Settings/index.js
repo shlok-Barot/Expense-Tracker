@@ -41,7 +41,7 @@ class SettingsPage extends Component {
           : 15000
         : 15000,
       mode: this.props.settings ? this.props.settings.mode : "day",
-  
+
       editedCategories: this.props.settings
         ? this.props.settings.editedCategories
           ? {
@@ -96,8 +96,9 @@ class SettingsPage extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleChangeEditedCategories =
-      this.handleChangeEditedCategories.bind(this);
+    this.handleChangeEditedCategories = this.handleChangeEditedCategories.bind(
+      this
+    );
   }
 
   handleSubmit(event) {
@@ -158,9 +159,7 @@ class SettingsPage extends Component {
           ? this.props.settings.font
           : "sans-serif",
         backgroundColor: this.props.settings
-          ? this.props.settings.mode === "night"
-            ? "#484842"
-            : "auto"
+          ? this.props.settings.mode === "night" ? "#484842" : "auto"
           : "auto",
         minHeight: "91vh",
         padding: "2.33%",
@@ -168,15 +167,13 @@ class SettingsPage extends Component {
 
       const white = {
         color: this.props.settings
-          ? this.props.settings.mode === "night"
-            ? "#fff"
-            : "#000"
+          ? this.props.settings.mode === "night" ? "#fff" : "#000"
           : "#000",
       };
 
-      const customLabel = {
-        marginLeft: window.screen.width > 720 ? "-35%" : "0",
-      };
+      // const customLabel = {
+      //   marginLeft: window.screen.width > 720 ? "-35%" : "0",
+      // };
 
       const centerHeight = {
         padding: "15px",
@@ -632,13 +629,11 @@ class SettingsPage extends Component {
                   </div>
                 </div>
 
-                {this.state.dataSaved ? (
-                  <span className="bg-success success-msg">
-                    Data saved successfully
-                  </span>
-                ) : (
-                  <span />
-                )}
+                {this.state.dataSaved
+                  ? <span className="bg-success success-msg">
+                      Data saved successfully
+                    </span>
+                  : <span />}
                 <button className="btn btn-primary float-right" type="submit">
                   save
                 </button>
