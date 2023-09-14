@@ -894,3 +894,6 @@ i.fa.fa-circle-o {
     line-height: initial;
     text-overflow: ellipsis;
 }
+.pagination{
+    justify-content: center;
+}
